@@ -2,6 +2,24 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import Validator from 'npm:validator';
 
+var detailFormObject = Ember.Object.extend(Ember.Validations.Mixin, {
+  validations: {
+    title: {
+      absence: true,
+      length: { minimum: 5 }
+    },
+    // email: {
+    //   presence: true
+    // },
+    phone: {
+      numericality: true
+    },
+    url: {
+      presence: true
+    }
+  }
+});
+
 export default Ember.Component.extend(Ember.Validations.Mixin, {
   validations: {
     title: {
@@ -20,19 +38,11 @@ export default Ember.Component.extend(Ember.Validations.Mixin, {
   },
   validationFlag: Ember.computed('errors', function() {
     console.log("errors computed property");
+    console.log(this.get('errors.title'));
     return false;
   }).property(),
   formValidationStatus: function() {
     return "I am called";
-    // if(this.get('errors') && this.get('errors').has('title') && this.get('errors').has('email') &&
-    //     this.get('errors').has('phone') && this.get('errors').has('url')) {
-    //       return true;
-    // } else {
-    //   return false;
-    // }
-  }.property(),
-  formValidationStatus1: function() {
-    console.log('I am called!!!');
     // if(this.get('errors') && this.get('errors').has('title') && this.get('errors').has('email') &&
     //     this.get('errors').has('phone') && this.get('errors').has('url')) {
     //       return true;
@@ -75,11 +85,11 @@ export default Ember.Component.extend(Ember.Validations.Mixin, {
 
   actions: {
     test() {
-      var check = "Hello", detail = this.get('detailObj');
-      console.log(this.get('titleString'));
-      //alert("test method called" + detail);
-      console.log('test method called' + detail);
-      console.log(this.get('errors.title'));
+      var detail = detailFormObject.create();
+      detail.validate().then(null, function() {
+        console.log(detail.get('isValid'));
+        console.log(detail.get('errors.title'));
+      });
     },
     validateEmail() {
       var emailRegex = /^[a-zA-Z0-9!#$%&\'*+\\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/;
