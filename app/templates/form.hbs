@@ -1,0 +1,35 @@
+<form {{action "test" on="submit"}}>
+	<div class="form-group col-sm-8 {{if errors.title 'has-error'}}">
+		<label for="">Title: {{formType}}</label>
+		{{input class="form-control" name="inpText" type="text" value=detailObj.inputText key-press="validateForm"}}
+		{{#each errors.title as |error|}}
+			<span class="help-block">{{error.message}}</span>
+		{{/each}}
+	</div>
+
+	<div class="form-group col-sm-8">
+		<label for="">Email: </label>
+		{{input class="form-control" name="email" type="text" value=detailObj.emailId}}
+	</div>
+
+	<div class="form-group col-sm-8 {{if errors.phone 'has-error'}}">
+		<label for="">Phone: </label>
+		{{input class="form-control" name="inpText" type="text" value=detailObj.phone key-press="validateForm"}}
+		{{#each errors.phone as |error|}}
+			<span class="help-block">{{error.message}}</span>
+		{{/each}}
+	</div>
+
+	<div class="form-group col-sm-8 {{if errors.url 'has-error'}}">
+		<label for="">Domain URL: </label>
+		{{input class="form-control" name="inpText" type="text" value=detailObj.url}}
+		{{#each errors.url as |error|}}
+			<span class="help-block">{{error.message}}</span>
+		{{/each}}
+	</div>
+
+	<div class="form-group col-sm-8">
+		<button {{action "checkValue" on="click"}}>Route Acion</button>
+	</div>
+	<button class="form-group btn btn-primary col-sm-5">Submit</button>
+</form>

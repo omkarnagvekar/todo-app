@@ -1,0 +1,18 @@
+<div>
+	<h4>List of available Car variants: >> {{isNotDefined}}  </h4>
+	<div>{{mockStr}}</div>
+	<div>{{testModel.brand}}: {{testModel.name}}  </div>
+	<div>{{testMessage}}</div>
+	
+	<ul>
+		{{#each variantsList as |variant|}}
+			<li>
+				<a href="http://www.google.com/search?q={{variant.name}}" title="Search {{variant.name}} on google" target="_blank">{{variant.name}}</a>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+
+<div>
+{{outlet}}
+</div>

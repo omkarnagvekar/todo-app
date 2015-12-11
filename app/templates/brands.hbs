@@ -1,0 +1,17 @@
+<div>
+	<h4>Car Brands: >> {{isDefined}}</h4>
+	<div>{{mockStr}}</div>
+
+	<ul>
+		{{#each brandsList as |brand|}}
+			<li>
+				<a href="http://www.google.com/search?q={{brand.name}}" title="Search {{brand.name}} on google" target="_blank">{{brand.name}}</a>
+
+				{{#link-to "brands.brand" brand}} >>>>> {{/link-to}}
+				{{input value=brand.name}}
+			</li>
+		{{/each}}
+	</ul>
+</div>
+
+<div> {{outlet}} </div>
