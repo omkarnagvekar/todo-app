@@ -1,55 +1,28 @@
 import Ember from 'ember';
+import ValidMixin from '../mixins/validations';
 import DS from 'ember-data';
 import Validator from 'npm:validator';
 
 var detailFormObject = Ember.Object.extend(Ember.Validations.Mixin, {
   validations: {
     title: {
-      absence: true,
-      length: { minimum: 5 }
+      presence: true,
+      //length: { minimum: 5 }
     },
-    // email: {
-    //   presence: true
-    // },
-    phone: {
-      numericality: true
-    },
-    url: {
-      presence: true
-    }
   }
 });
 
-export default Ember.Component.extend(Ember.Validations.Mixin, {
-  validations: {
-    title: {
-      absence: true,
-      length: { minimum: 5 }
-    },
-    email: {
-      presence: true
-    },
-    phone: {
-      numericality: true
-    },
-    url: {
-      presence: true
-    }
-  },
+export default Ember.Component.extend(ValidMixin, {
+  errors: DS.Errors.create(),
   validationFlag: Ember.computed('errors', function() {
     console.log("errors computed property");
     console.log(this.get('errors.title'));
+    // console.log(ValidMixin.mixins[0].properties.validations);
+    // console.log(ValidMixin.mixins[0].properties.printMessage());
+    console.log(this.get('validations'));
+    this.printMessage("Hello");
     return false;
   }).property(),
-  formValidationStatus: function() {
-    return "I am called";
-    // if(this.get('errors') && this.get('errors').has('title') && this.get('errors').has('email') &&
-    //     this.get('errors').has('phone') && this.get('errors').has('url')) {
-    //       return true;
-    // } else {
-    //   return false;
-    // }
-  }.property(),
 
   /*Computed property*/
   titleString: Ember.computed('detailObj', function() {
@@ -60,36 +33,43 @@ export default Ember.Component.extend(Ember.Validations.Mixin, {
     return this.get('detailObj.title') + def;
   }),
 
-  /*Title validation*/
-  watchTitle: Ember.observer('detailObj.title', function() {
-    var detail = this.get('detailObj.title');
+  clearErrorsObject(fieldName) {
+    if(this.get('errors').has(fieldName))
+      this.get('errors').remove(fieldName);
+  },
+
+  setSubmitFlag() {
     if(this.get('errors').has('title'))
-      this.get('errors').remove('title');
-
-    if(Validator.contains(detail, ".")) {
-      this.get('errors').add('title', 'Unexpected title');
-      console.log(this.get('errors.title'));
-    }
-  }),
-
-  /*Phone number validation*/
-  watchPhone: function() {
-    if(this.get('errors').has('phone'))
-      this.get('errors').remove('phone');
-
-    if(!Validator.isNumeric(this.get('detailObj.phone'), 'en-US')) {
-      this.get('errors').add('phone', 'Phone number does not exist... Please try again');
-    }
-    console.log("Email id: " + this.get('detailObj.phone'));
-  }.observes('detailObj.phone'),
+      this.set('submitFlag', true);
+    else
+      this.set('submitFlag', false);
+  },
 
   actions: {
     test() {
       var detail = detailFormObject.create();
+      console.log(detail);
       detail.validate().then(null, function() {
         console.log(detail.get('isValid'));
         console.log(detail.get('errors.title'));
       });
+    },
+    /*Title validation*/
+    validateTitle() {
+      var title = this.get('detailObj.title'), titleValidations = this.get('validations.title');
+      /*Clear errors object*/
+      this.clearErrorsObject('title');
+
+      /*Perform Validations*/
+      if(Validator.isNull(title))
+        this.get('errors').add('title', this.getErrorMessage('title', 'presence'));
+      if(title.length > 0 && title.length < 5)
+        this.get('errors').add('title', this.getErrorMessage('title', 'minlength'));
+      if(title.length > 20)
+        this.get('errors').add('title', this.getErrorMessage('title', 'maxlength'));
+
+      /*Enable/disable Submit flag*/
+      this.setSubmitFlag();
     },
     validateEmail() {
       var emailRegex = /^[a-zA-Z0-9!#$%&\'*+\\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/;

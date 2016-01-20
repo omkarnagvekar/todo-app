@@ -5,6 +5,6 @@ export default Ember.Route.extend({
     return this.store.findRecord('detail');
   },
   setupController(controller, model) {
-    this.set('validationModel', model);
+    controller.set('validationModel', model);
   }
 });

@@ -17,5 +17,8 @@
     "lodash": "~3.7.0",
     "Faker": "~3.0.0",
     "ember-validations": "git://github.com/kristianmandrup/ember-validations.git#master"
+  },
+  "devDependencies": {
+    "blanket": "~1.1.5"
   }
 }

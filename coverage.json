@@ -1,0 +1,242 @@
+{
+  "stats": {
+    "suites": 44,
+    "tests": 44,
+    "passes": 34,
+    "pending": 0,
+    "failures": 10,
+    "start": "2016-01-13T11:48:42.127Z",
+    "end": "2016-01-13T11:48:42.445Z"
+  },
+  "coverage": {
+    "total": {
+      "statementsTotal": 268,
+      "statementsCovered": 93,
+      "percentage": 34.7
+    },
+    "files": [
+      {
+        "name": "todo-app/config/environment",
+        "statementsTotal": 8,
+        "statementsCovered": 7,
+        "percentage": 87.5
+      },
+      {
+        "name": "todo-app/mixins/validations",
+        "statementsTotal": 6,
+        "statementsCovered": 3,
+        "percentage": 50
+      },
+      {
+        "name": "todo-app/router",
+        "statementsTotal": 10,
+        "statementsCovered": 4,
+        "percentage": 40
+      },
+      {
+        "name": "todo-app/adapters/application",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/models/post",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/routes/application",
+        "statementsTotal": 3,
+        "statementsCovered": 2,
+        "percentage": 66.67
+      },
+      {
+        "name": "todo-app/routes/posts",
+        "statementsTotal": 3,
+        "statementsCovered": 2,
+        "percentage": 66.67
+      },
+      {
+        "name": "todo-app/app",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/initializers/app-version",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/initializers/ember-cli-mirage",
+        "statementsTotal": 17,
+        "statementsCovered": 4,
+        "percentage": 23.53
+      },
+      {
+        "name": "todo-app/mirage/config",
+        "statementsTotal": 4,
+        "statementsCovered": 2,
+        "percentage": 50
+      },
+      {
+        "name": "todo-app/initializers/export-application-global",
+        "statementsTotal": 16,
+        "statementsCovered": 4,
+        "percentage": 25
+      },
+      {
+        "name": "todo-app/components/app-version",
+        "statementsTotal": 4,
+        "statementsCovered": 4,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/components/form-validation",
+        "statementsTotal": 33,
+        "statementsCovered": 2,
+        "percentage": 6.06
+      },
+      {
+        "name": "todo-app/components/framework-validation",
+        "statementsTotal": 40,
+        "statementsCovered": 3,
+        "percentage": 7.5
+      },
+      {
+        "name": "todo-app/controllers/array",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/controllers/brands/brand",
+        "statementsTotal": 6,
+        "statementsCovered": 2,
+        "percentage": 33.33
+      },
+      {
+        "name": "todo-app/controllers/brands",
+        "statementsTotal": 8,
+        "statementsCovered": 2,
+        "percentage": 25
+      },
+      {
+        "name": "todo-app/controllers/form",
+        "statementsTotal": 29,
+        "statementsCovered": 2,
+        "percentage": 6.9
+      },
+      {
+        "name": "todo-app/controllers/object",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/helpers/pluralize",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/helpers/singularize",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/mirage/factories/contact",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/mirage/factories/posts",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/mirage/fixtures/brands",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/mirage/fixtures/details",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/mirage/fixtures/posts",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/mirage/scenarios/default",
+        "statementsTotal": 3,
+        "statementsCovered": 2,
+        "percentage": 66.67
+      },
+      {
+        "name": "todo-app/models/brand",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/models/detail",
+        "statementsTotal": 2,
+        "statementsCovered": 2,
+        "percentage": 100
+      },
+      {
+        "name": "todo-app/routes/about",
+        "statementsTotal": 3,
+        "statementsCovered": 2,
+        "percentage": 66.67
+      },
+      {
+        "name": "todo-app/routes/brands/brand",
+        "statementsTotal": 13,
+        "statementsCovered": 2,
+        "percentage": 15.38
+      },
+      {
+        "name": "todo-app/routes/brands/variant/variant",
+        "statementsTotal": 3,
+        "statementsCovered": 2,
+        "percentage": 66.67
+      },
+      {
+        "name": "todo-app/routes/brands",
+        "statementsTotal": 7,
+        "statementsCovered": 2,
+        "percentage": 28.57
+      },
+      {
+        "name": "todo-app/routes/form",
+        "statementsTotal": 10,
+        "statementsCovered": 2,
+        "percentage": 20
+      },
+      {
+        "name": "todo-app/routes/framework",
+        "statementsTotal": 4,
+        "statementsCovered": 2,
+        "percentage": 50
+      },
+      {
+        "name": "todo-app/routes/validations",
+        "statementsTotal": 4,
+        "statementsCovered": 2,
+        "percentage": 50
+      }
+    ]
+  }
+}
